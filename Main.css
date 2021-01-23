@@ -12,8 +12,7 @@ html, body{
 .body{
     display: flex;
     justify-content: center;
-    margin: 0px 0px 20px 0px;
-    height: 45%;
+    align-items: center;
 }
 
 .flex{
@@ -21,18 +20,24 @@ html, body{
 }
 
 #output{
-    width: 90%;
-    height: 90%;
-    position: relative;
-    left: 5%;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
     border: 1px solid black;
 }
 
 #input{
-    width: 90%;
-    height: 70%;
+    width: 500px;
+    height: 500px;
 }
 
 h2{
     margin: 20px 0px;
+}
+
+#help{
+    color: gray;
+    text-decoration: underline;
+    cursor: pointer;
 }
