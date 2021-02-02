@@ -96,7 +96,7 @@ function DrawGraph(){
     // 이진 트리
     if (arr[0].length == 1){
         if (isNaN(arr[0][0])){ return; }
-    
+        
         nodeCount = parseInt(arr[0][0]);
 
         if (arr.length != nodeCount){ return; }
@@ -106,7 +106,7 @@ function DrawGraph(){
         for (let i = 1; i <= nodeCount; i++){
             nodeList[i] = {
                 id: i,
-                x: 0, y: 0,
+                x: -1, y: -1,
                 adjList: []
             };
         }
@@ -116,6 +116,7 @@ function DrawGraph(){
         (1) 간선의 개수가 n - 1 개 (v)
         (2) 중복 간선이 없어야 함 (v)
         (3) Loop 가 없어야 함 (v)
+        (4) Component == 1
         2. 자식의 개수가 2개 이하인지 검사
             # 1번 노드의 자식 <= 2
             # 그 외 노드의 indegree <= 3 ( 부모 포함 )
@@ -168,6 +169,9 @@ function DrawGraph(){
             }
         }
         dfs(1, 1, -1);
+        for (let i = 1; i <= nodeCount; i++) {
+            if (nodeList[i].x == -1) { return; }
+        }
         console.log(nodeList);
         // [1, width], [1, height]
         width--;
